@@ -1,3 +1,9 @@
-# Build folder and log file
-build/
-build.log
+logs
+public
+__pycache__/
+*.py[cod]
+private
+.DS_Store
+.vscode
+
+
