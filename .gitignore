@@ -5,5 +5,13 @@ __pycache__/
 private
 .DS_Store
 .vscode
+*.pyc
+*.swp
+*.bak
+build
+dist
+*.egg-info
+lib
+tests
 
 
