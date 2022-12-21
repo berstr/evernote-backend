@@ -10,10 +10,10 @@ import config
 
 config.init()
 
-# EVERNOTE_BACKEND_CORS = os.environ.get("EVERNOTE_BACKEND_CORS")
-# if (EVERNOTE_BACKEND_CORS == 'true'):
-#    from flask_cors import CORS
-#    CORS(config.APP)
+EVERNOTE_BACKEND_CORS = os.environ.get("EVERNOTE_BACKEND_CORS")
+if (EVERNOTE_BACKEND_CORS == 'true'):
+   from flask_cors import CORS
+   CORS(config.APP)
 
 
 
