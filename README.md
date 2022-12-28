@@ -23,7 +23,9 @@ Optional - if you run front-end stand-alone (backend either via docker or CLI)
 
 Manual start from command line:
 
-export PYTHONPATH=./lib; newrelic-admin run-program python3 evernote_backend.py
+export PYTHONPATH=./lib; newrelic-admin run-program gunicorn -w 4 -b 0.0.0.0:37071 evernote_backend:APP
+
+Old: export PYTHONPATH=./lib; newrelic-admin run-program python3 evernote_backend.py
 
 ---------------------
 

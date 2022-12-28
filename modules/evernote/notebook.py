@@ -15,32 +15,25 @@ def get_notes(notebook_guid):
   filter = NoteFilter(notebookGuid = notebook_guid)
 
   startIndex = 0
-  get_notes_count = 4
+  get_notes_count = 100
   result = []
   while True:
     notes = config.EVERNOTE.findNotes(filter,startIndex,get_notes_count)
+    config.LOGGER.info(f'notebook:get_notes() - total notes: {notes.totalNotes} -  number of notes: {len(notes.notes)} - max notes per request: {get_notes_count}')
 
+    i = startIndex + 1
     for note in notes.notes:
       result.append({ 'title':note.title, 'guid':note.guid, 'tags':note.tagGuids, 'notebookGuid':note.notebookGuid})
-      print(note.title)
-      print(note)
-      print('-----------------')
-      if note.title == 'n4':
-        c = config.EVERNOTE.getNote(note.guid, True, False, False, False)
-        print('.....................')
-        print(c)
-      print('-----------------')
+      config.LOGGER.info(f'notebook:get_notes() - [{i}] title: {note.title}')
+      i = i + 1
+
     startIndex = startIndex + len(notes.notes)
-    # print('notes.totalNotes: ', notes.totalNotes)
-    # print('startIndex: ',startIndex)
-    # print('len(notes.notes): ',len(notes.notes))
     if startIndex >= notes.totalNotes:
       break
-  # print(x.startIndex)  
-  # print(x.totalNotes)
-  # print(len(x.notes))  
-
   return result
+
+def get_note(note_guid):
+  return config.EVERNOTE.getNote(note_guid, True, False, False, False)
 
 '''
   do {

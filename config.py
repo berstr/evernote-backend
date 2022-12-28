@@ -1,4 +1,4 @@
-from flask import Flask #, jsonify, request
+# from flask import Flask #, jsonify, request
 
 import os
 import logging
@@ -16,7 +16,6 @@ EVERNOTE_PORT_DEFAULT = 37071
 # ==========================
 # The following variables are being set by the application at runtime:
 # ==========================
-APP = None
 LOGGER = None
 EVERNOTE = None
 
@@ -44,7 +43,7 @@ if (EVERNOTE_PORT == None):
 # Init of variables, etc.
 # ==========================
 
-APP = Flask(__name__,static_folder='public', static_url_path='')
+# APP = Flask(__name__,static_folder='public', static_url_path='')
 
 
 def init():
