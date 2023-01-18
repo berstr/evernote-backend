@@ -23,7 +23,7 @@ def get_notes(notebook_guid):
 
     i = startIndex + 1
     for note in notes.notes:
-      result.append({ 'title':note.title, 'guid':note.guid, 'tags':note.tagGuids, 'notebookGuid':note.notebookGuid})
+      result.append({ 'title':note.title, 'guid':note.guid, 'tagGuids':note.tagGuids, 'notebookGuid':note.notebookGuid})
       config.LOGGER.info(f'notebook:get_notes() - [{i}] title: {note.title}')
       i = i + 1
 

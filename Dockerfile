@@ -2,7 +2,7 @@
 
 FROM python:3.9-alpine AS base
 
-RUN pip install --no-cache-dir newrelic
+ RUN pip install --no-cache-dir newrelic
 
 ENTRYPOINT ["newrelic-admin", "run-program"]
 
@@ -17,4 +17,5 @@ COPY . .
 
 ENV NEW_RELIC_LOG=stdout
 ENV PYTHONPATH=./lib:./modules; 
-CMD [ "python3", "evernote_backend.py"]
+
+CMD [ "gunicorn", "-b 0.0.0.0:37071", "evernote_backend:APP"]
